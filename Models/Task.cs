@@ -16,6 +16,7 @@ namespace Mission08_Practice.Models
         public string DueDate { get; set; }
 
         [Required]
+        [Range(1,4)]
         public string Quadrant { get; set; }
 
         public string Category { get; set; }
