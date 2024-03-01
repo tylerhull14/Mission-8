@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission_8.Models;
-using Mission08_Practice.Models;
 using System.Diagnostics;
 
 namespace Mission_8.Controllers
@@ -17,6 +17,35 @@ namespace Mission_8.Controllers
         {
             return View();
         }
+
+
+        public IActionResult EditActivity(ActivtyID)
+        {
+
+        var activityToEdit = _context.Activities
+        .Single(x => x.ActivityId == id);
+
+        ViewBag.Categories = _context.Categories
+            .OrderBy(x => x.CategoryName)
+            .ToList();
+
+        return View("Add", activityToEdit);
+        }
+
+
+        
+
+
+
+
+        [HttpPost]
+        public IActionResult Name()
+        {
+            return View("");
+        }
+
+
+
 
     }
 }
