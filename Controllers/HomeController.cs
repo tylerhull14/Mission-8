@@ -26,6 +26,15 @@ namespace Mission_8.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Add()
+        {
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
+            return View();
+        }
+
 
         public IActionResult EditActivity(int id)
         {
@@ -41,19 +50,18 @@ namespace Mission_8.Controllers
         }
 
 
-        
-
-
-
 
         [HttpPost]
-        public IActionResult Name()
+        public IActionResult Add(Activity response)
         {
-            return View("");
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
+            _context.Activities.Add(response); // Add record to database
+            _context.SaveChanges();
+
+            return RedirectToAction("Matrix");
         }
-
-
-
 
     }
 }
