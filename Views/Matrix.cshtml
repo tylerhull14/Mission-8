@@ -1,0 +1,140 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Task>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephen Covey's Time Management Matrix</title>
+    <link href="~/css/mystyles.css" rel="stylesheet" />
+    <style>
+        .Home {
+            color: #E35031; /* Soft Red */
+        }
+
+        .Work {
+            color: #7851A9; /* Lavender */
+        }
+
+        .School {
+            color: #FF8C00; /* Soft Orange */
+        }
+
+        .Church {
+            color: #007FFF; /* Light Blue */
+        }
+    </style>
+@*     @{
+        var className = "";
+        switch (Model.Category)
+        {
+            case "Home":
+                className = "Home";
+                break;
+            case "Work":
+                className = "Work";
+                break;
+            case "School":
+                className = "School";
+                break;
+            case "Church":
+                className = "Church";
+                break;
+            default:
+                className = ""; // Default class or leave empty
+                break;
+        }
+    }
+ *@
+</head>
+<body>
+
+    <div class="covey-matrix">
+        <div class="matrix-title">STEPHEN COVEY'S TIME MANAGEMENT MATRIX</div>
+        <div class="row">
+            <div class="urgent">
+                <div>URGENT</div>
+                <div>NOT URGENT</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="quadrant-title">Quadrant 1</div>
+                <ul>
+                    @foreach (var t in Model)
+                    {
+                        @if (t.Quadrant == 1 && !t.Completed)
+                        {
+                            <li class="@className"><a asp-controller="Home" asp-action="EditTask" asp-route-id="@t.TaskId">@t.TaskDescription</a></li>
+                        }
+                    }
+                    <li>Crisis</li>
+                    <li>Pressing Problems</li>
+                    <li>Projects with Deadlines</li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="quadrant-title">Quadrant 2</div>
+                <ul>
+                    @foreach (var t in Model)
+                    {
+                        @if (t.Quadrant == 2 && !t.Completed)
+                        {
+                            <li class="@className"><a asp-controller="Home" asp-action="EditTask" asp-route-id="@t.TaskId">@t.TaskDescription</a></li>
+                        }
+                    }
+                    <li>Relationship Building</li>
+                    <li>Planning</li>
+                    <li>Recreation</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="important">
+                <div>IMPORTANT</div>
+                <div>NOT IMPORTANT</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="quadrant-title">Quadrant 3</div>
+                <ul>
+                    @foreach (var t in Model)
+                    {
+                        @if (t.Quadrant == 3 && !t.Completed)
+                        {
+                            <li class="@className"><a asp-controller="Home" asp-action="EditTask" asp-route-id="@t.TaskId">@t.TaskDescription</a></li>
+                        }
+                    }
+                    <li>Interruptions</li>
+                    <li>Some Phone Calls</li>
+                    <li>Some Mail</li>
+                    <li>Some Reports</li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="quadrant-title">Quadrant 4</div>
+                <ul>
+                    @foreach (var t in Model)
+                    {
+                        @if (t.Quadrant == 4 && !t.Completed)
+                        {
+                            <li class="@className"><a asp-controller="Home" asp-action="EditTask" asp-route-id="@t.TaskId">@t.TaskDescription</a></li>
+                        }
+                    }
+                    <li>Busy Work</li>
+                    <li>Some Phone Calls</li>
+                    <li>Some Mail</li>
+                    <li>Time Wasters</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
