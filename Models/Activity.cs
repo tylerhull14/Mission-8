@@ -1,25 +1,28 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.Contracts;
 
 namespace Mission08_Practice.Models
 {
     //create object that database will store
-    public class Task
+    public class Activity
     {
         [Key]
         [Required]
-        public int TaskId { get; set; }
+        public int ActivityId { get; set; }
 
         [Required]
-        public string TaskDescription { get; set; }
+        public string ActivityDescription { get; set; }
 
         public string DueDate { get; set; }
 
         [Required]
         [Range(1,4)]
-        public string Quadrant { get; set; }
+        public int Quadrant { get; set; }
 
-        public string Category { get; set; }
+        [ForeignKey("Category")]
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
 
         public int Completed { get; set; }
     }
