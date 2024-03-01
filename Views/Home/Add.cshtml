@@ -50,14 +50,14 @@
                                     <!-- Task Category -->
                                     <div class="form-group">
                                         <label asp-for=Category>Task Category</label>
-                                        <select asp-for=Category class="form-control">
-                                            <option value=""></option>
-                                            <option value="1">Home</option>
-                                            <option value="2">School</option>
-                                            <option value="3">Work</option>
-                                            <option value="4">Church</option>
+                                        <select asp-for=CategoryId class="form-control">
+                                           <option value=""> </option>
+                                            @foreach (Category c in ViewBag.Categories)
+                                            {
+                                            <option value="@c.CategoryId">@c.CategoryName</option>
+                                            }
                                         </select>
-                                    </div>
+</div>
 
                                     <!-- IsCompleted -->
                                     <div class="form-group">
