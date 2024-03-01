@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Mission_8.Models;
 using System.Diagnostics;
+using Activity = Mission_8.Models.Activity;
+using ActivityContext = Mission_8.Models.ActivityContext;
 
 namespace Mission_8.Controllers
 {
