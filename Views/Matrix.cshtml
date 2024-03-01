@@ -70,7 +70,7 @@
                     {
                         @if (t.Quadrant == 1 && !t.Completed)
                         {
-                            <li class="@className"><a asp-controller="Home" asp-action="EditTask" asp-route-id="@t.TaskId">@t.TaskDescription</a></li>
+                            <li class="@className"><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
                         }
                     }
                     <li>Crisis</li>
@@ -85,7 +85,7 @@
                     {
                         @if (t.Quadrant == 2 && !t.Completed)
                         {
-                            <li class="@className"><a asp-controller="Home" asp-action="EditTask" asp-route-id="@t.TaskId">@t.TaskDescription</a></li>
+                            <li class="@className"><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
                         }
                     }
                     <li>Relationship Building</li>
@@ -108,7 +108,7 @@
                     {
                         @if (t.Quadrant == 3 && !t.Completed)
                         {
-                            <li class="@className"><a asp-controller="Home" asp-action="EditTask" asp-route-id="@t.TaskId">@t.TaskDescription</a></li>
+                            <li class="@className"><a asp-controller="Home" asp-action="EditTask" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
                         }
                     }
                     <li>Interruptions</li>
@@ -124,7 +124,7 @@
                     {
                         @if (t.Quadrant == 4 && !t.Completed)
                         {
-                            <li class="@className"><a asp-controller="Home" asp-action="EditTask" asp-route-id="@t.TaskId">@t.TaskDescription</a></li>
+                            <li class="@className"><a asp-controller="Home" asp-action="EditTask" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
                         }
                     }
                     <li>Busy Work</li>
