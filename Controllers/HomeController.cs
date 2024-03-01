@@ -9,13 +9,12 @@ namespace Mission_8.Controllers
 {
     public class HomeController : Controller
     {
-        private IActivityRepository _repo;
+        private ActivityContext _context;
 
         public HomeController(ActivityContext temp)
         {
-            _repo = temp;
+            _context = temp;
         }
-
         public IActionResult Index()
         {
             return View("Matrix");
@@ -87,6 +86,8 @@ namespace Mission_8.Controllers
 
             return View("Add", activityToEdit);
         }
+
+
 
         [HttpPost]
         public IActionResult Add(Activity response)
