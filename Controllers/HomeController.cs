@@ -8,7 +8,12 @@ namespace Mission_8.Controllers
 {
     public class HomeController : Controller
     {
+        private ActivityContext _context;
 
+        public HomeController(ActivityContext temp)
+        {
+            _context = temp;
+        }
         public IActionResult Index()
         {
             return View();

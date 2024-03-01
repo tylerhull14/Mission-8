@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Mission08_Practice.Models;
+using Mission_8.Models;
 
 #nullable disable
 
@@ -16,7 +16,7 @@ namespace Mission_8.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
 
-            modelBuilder.Entity("Mission08_Practice.Models.Activity", b =>
+            modelBuilder.Entity("Mission_8.Models.Activity", b =>
                 {
                     b.Property<int>("ActivityId")
                         .ValueGeneratedOnAdd()
@@ -46,7 +46,7 @@ namespace Mission_8.Migrations
                     b.ToTable("Activities");
                 });
 
-            modelBuilder.Entity("Mission08_Practice.Models.Category", b =>
+            modelBuilder.Entity("Mission_8.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
@@ -61,9 +61,9 @@ namespace Mission_8.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("Mission08_Practice.Models.Activity", b =>
+            modelBuilder.Entity("Mission_8.Models.Activity", b =>
                 {
-                    b.HasOne("Mission08_Practice.Models.Category", "Category")
+                    b.HasOne("Mission_8.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
