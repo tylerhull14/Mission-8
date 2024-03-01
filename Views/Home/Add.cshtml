@@ -3,7 +3,7 @@
 *@
 @{
 }
-@model Mission_8.Models.Activity
+@model Activity
 
 <!-- Projects Section-->
 <section class="py-5">
@@ -71,8 +71,8 @@
                                     </div>
 
                                     <div class="btn-group" role="group">
-                                        <a class="btn btn-info btn-light-blue" asp-controller="Home" asp-action="Edit" asp-route-id="@x.ActivityId">Edit</a>
-                                        <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.ActivityId">Delete</a>
+                                        <a class="btn btn-info btn-light-blue" asp-controller="Home" asp-action="Edit" asp-route-id="@Model.ActivityId">Edit</a>
+                                        <a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@Model.ActivityId">Delete</a>
                                     </div>
 
                                 </form>
