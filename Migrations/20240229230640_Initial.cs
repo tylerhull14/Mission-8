@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Activity = Mission_8.Models.Activity;
 
 #nullable disable
 
