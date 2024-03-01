@@ -7,15 +7,15 @@ using ActivityContext = Mission_8.Models.ActivityContext;
 
 namespace Mission_8.Controllers
 {
-
     public class HomeController : Controller
     {
-        private ActivityContext _context;
+        private IActivityRepository _repo;
 
         public HomeController(ActivityContext temp)
         {
-            _context = temp;
+            _repo = temp;
         }
+
         public IActionResult Index()
         {
             return View();
@@ -35,7 +35,6 @@ namespace Mission_8.Controllers
             return View();
         }
 
-
         public IActionResult EditActivity(int id)
         {
 
@@ -48,8 +47,6 @@ namespace Mission_8.Controllers
 
             return View("Add", activityToEdit);
         }
-
-
 
         [HttpPost]
         public IActionResult Add(Activity response)
