@@ -18,12 +18,48 @@ namespace Mission_8.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View("Matrix");
         }
 
         public IActionResult Matrix()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var activityToEdit = _context.Activities
+                .SingleOrDefault(x => x.ActivityId == id);
+            return View("Add", activityToEdit);
+        }
+
+
+
+
+        [HttpPost]
+        public IActionResult Edit(Activity updatedInfo)
+
+        {
+            _context.Update(updatedInfo);
+            _context.SaveChanges();
+            return RedirectToAction("Add");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var Activity = _context.Activities
+                .Single(x => x.ActivityId == id);
+            return View(Activity);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Activity updatedInfo)
+        {
+            _context.Update(updatedInfo);
+            _context.SaveChanges();
+            return RedirectToAction("Matrix");
         }
 
         [HttpGet]
@@ -36,6 +72,8 @@ namespace Mission_8.Controllers
         }
 
 
+
+        [HttpGet]
         public IActionResult EditActivity(int id)
         {
 
