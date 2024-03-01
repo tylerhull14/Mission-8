@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.Contracts;
 
-namespace Mission08_Practice.Models
+namespace Mission_8.Models
 {
     //create object that database will store
     public class Activity

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Mission08_Practice.Models
+namespace Mission_8.Models
 {
     public class Category
     {

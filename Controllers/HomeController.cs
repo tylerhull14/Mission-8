@@ -1,18 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission_8.Models;
-using Mission08_Practice.Models;
 using System.Diagnostics;
+using Activity = Mission_8.Models.Activity;
+using ActivityContext = Mission_8.Models.ActivityContext;
 
 namespace Mission_8.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
         public IActionResult Index()
         {
@@ -24,10 +20,34 @@ namespace Mission_8.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+
+        public IActionResult EditActivity(ActivtyID)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+
+        var activityToEdit = _context.Activities
+        .Single(x => x.ActivityId == id);
+
+        ViewBag.Categories = _context.Categories
+            .OrderBy(x => x.CategoryName)
+            .ToList();
+
+        return View("Add", activityToEdit);
         }
+
+
+        
+
+
+
+
+        [HttpPost]
+        public IActionResult Name()
+        {
+            return View("");
+        }
+
+
+
+
     }
 }
