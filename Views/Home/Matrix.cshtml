@@ -49,8 +49,8 @@
                 className = ""; // Default class or leave empty
                 break;
         }
-    }
- *@
+    } *@
+
 </head>
 <body>
 
@@ -68,9 +68,9 @@
                 <ul>
                     @foreach (var t in Model)
                     {
-                        @if (t.Quadrant == 1 && !t.Completed)
+                        @if (t.Quadrant == 1 && t.Completed == 0)
                         {
-                            <li class="@className"><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
+                            <li @* class="@className" *@><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
                         }
                     }
                     <li>Crisis</li>
@@ -83,9 +83,9 @@
                 <ul>
                     @foreach (var t in Model)
                     {
-                        @if (t.Quadrant == 2 && !t.Completed)
+                        @if (t.Quadrant == 2 && t.Completed == 0)
                         {
-                            <li class="@className"><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
+                            <li @* class="@className" *@><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
                         }
                     }
                     <li>Relationship Building</li>
@@ -106,9 +106,9 @@
                 <ul>
                     @foreach (var t in Model)
                     {
-                        @if (t.Quadrant == 3 && !t.Completed)
+                        @if (t.Quadrant == 3 && t.Completed == 0)
                         {
-                            <li class="@className"><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
+                            <li @* class="@className" *@><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
                         }
                     }
                     <li>Interruptions</li>
@@ -122,9 +122,9 @@
                 <ul>
                     @foreach (var t in Model)
                     {
-                        @if (t.Quadrant == 4 && !t.Completed)
+                        @if (t.Quadrant == 4 && t.Completed == 0)
                         {
-                            <li class="@className"><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
+                            <li @* class="@className" *@><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
                         }
                     }
                     <li>Busy Work</li>

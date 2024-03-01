@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Activity = Mission_8.Models.Activity;
+using ActivityContext = Mission_8.Models.ActivityContext;
 using Mission_8.Models;
 
 #nullable disable
