@@ -23,7 +23,8 @@ namespace Mission_8.Controllers
 
         public IActionResult Matrix()
         {
-            return View();
+            var Activity = _context.Activities.Include(x => x.Category).ToList();
+            return View(Activity);
         }
 
         [HttpGet]
