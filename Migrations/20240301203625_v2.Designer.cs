@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Activity = Mission_8.Models.Activity;
 using ActivityContext = Mission_8.Models.ActivityContext;
 
 #nullable disable
