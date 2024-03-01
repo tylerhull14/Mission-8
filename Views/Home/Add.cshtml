@@ -3,6 +3,7 @@
 *@
 @{
 }
+@model Activity
 
 <!-- Projects Section-->
 <section class="py-5">
@@ -25,7 +26,7 @@
                                     <input type="hidden" asp-for="ActivityId" /> <!--Hiding Task Id so user doesn't see it but we need it for editing & updating records-->
                                     <!-- Task -->
                                     <div class="form-group">
-                                        <label asp-for=ActivtyDescription>Task Name: </label>
+                                        <label asp-for="ActivityDescription">Task Name: </label>
                                         <input asp-for=ActivityDescription id="ActivityId" class="form-control" />
                                         <div class="invalid-feedback">Task is required.</div>
                                     </div>
@@ -61,8 +62,8 @@
 
                                     <!-- IsCompleted -->
                                     <div class="form-group">
-                                        <label asp-for=IsCompleted>Completed Task</label>
-                                        <select asp-for="IsCompleted" required>
+                                        <label asp-for=Completed>Completed Task</label>
+                                        <select asp-for="Completed" required>
                                             <option value=""></option>
                                             <option value="1">True</option>
                                             <option value="0">False</option>
@@ -80,4 +81,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 </section>
