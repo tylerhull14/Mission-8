@@ -7,9 +7,15 @@ using ActivityContext = Mission_8.Models.ActivityContext;
 
 namespace Mission_8.Controllers
 {
+
     public class HomeController : Controller
     {
+        private ActivityContext _context;
 
+        public HomeController(ActivityContext temp)
+        {
+            _context = temp;
+        }
         public IActionResult Index()
         {
             return View();
@@ -21,17 +27,17 @@ namespace Mission_8.Controllers
         }
 
 
-        public IActionResult EditActivity(ActivtyID)
+        public IActionResult EditActivity(int id)
         {
 
-        var activityToEdit = _context.Activities
-        .Single(x => x.ActivityId == id);
+            var activityToEdit = _context.Activities
+            .Single(x => x.ActivityId == id);
 
-        ViewBag.Categories = _context.Categories
-            .OrderBy(x => x.CategoryName)
-            .ToList();
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
 
-        return View("Add", activityToEdit);
+            return View("Add", activityToEdit);
         }
 
 
