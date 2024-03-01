@@ -22,11 +22,11 @@
                                 <p>Please fill out the film information below. </p>
 
                                 <form class="task-form" method="post">
-                                    <input type="hidden" asp-for="TaskId" /> <!--Hiding Task Id so user doesn't see it but we need it for editing & updating records-->
+                                    <input type="hidden" asp-for="ActivityId" /> <!--Hiding Task Id so user doesn't see it but we need it for editing & updating records-->
                                     <!-- Task -->
                                     <div class="form-group">
-                                        <label asp-for=TaskDescription>Task Name: </label>
-                                        <input asp-for=TaskDescription id="TaskId" class="form-control" />
+                                        <label asp-for=ActivtyDescription>Task Name: </label>
+                                        <input asp-for=ActivityDescription id="ActivityId" class="form-control" />
                                         <div class="invalid-feedback">Task is required.</div>
                                     </div>
 
