@@ -53,88 +53,56 @@
 
 </head>
 <body>
-
-    <div class="covey-matrix">
-        <div class="matrix-title">STEPHEN COVEY'S TIME MANAGEMENT MATRIX</div>
+    <div class="container matrix">  
+        <div style="text-align: center" class="row header">
+            Stephen Covey Matrix
+        </div>
         <div class="row">
-            <div class="urgent">
-                <div>URGENT</div>
-                <div>NOT URGENT</div>
+            <div class="col-2"></div>
+            <div class="col-5">URGENT</div>
+            <div class="col-5">NOT URGENT</div>
+        </div>
+        <div class="row">
+            <div class="col-2">IMPORTANT</div>
+            <div class="col-5 quadrant">
+                @foreach (var t in Model)
+                {
+                    @if (t.Quadrant == 1 && t.Completed == 0)
+                    {
+                        <li>@t.ActivityDescription</li>
+                    }
+                }
+            </div>
+            <div class="col-5 quadrant">
+                @foreach (var t in Model)
+                {
+                    @if (t.Quadrant == 2 && t.Completed == 0)
+                    {
+                        <li>@t.ActivityDescription</li>
+                    }
+                }
             </div>
         </div>
         <div class="row">
-            <div class="column">
-                <div class="quadrant-title">Quadrant 1</div>
-                <ul>
-                    @foreach (var t in Model)
+            <div class="col-2">NOT IMPORTANT</div>
+            <div class="col-5 quadrant">
+                @foreach (var t in Model)
+                {
+                    @if (t.Quadrant == 3 && t.Completed == 0)
                     {
-                        @if (t.Quadrant == 1 && t.Completed == 0)
-                        {
-                            <li @* class="@className" *@><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
-                        }
+                        <li>@t.ActivityDescription</li>
                     }
-                    <li>Crisis</li>
-                    <li>Pressing Problems</li>
-                    <li>Projects with Deadlines</li>
-                </ul>
+                }
             </div>
-            <div class="column">
-                <div class="quadrant-title">Quadrant 2</div>
-                <ul>
-                    @foreach (var t in Model)
+            <div class="col-5 quadrant">
+                @foreach (var t in Model)
+                {
+                    @if (t.Quadrant == 4 && t.Completed == 0)
                     {
-                        @if (t.Quadrant == 2 && t.Completed == 0)
-                        {
-                            <li @* class="@className" *@><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
-                        }
+                        <li>@t.ActivityDescription</li>
                     }
-                    <li>Relationship Building</li>
-                    <li>Planning</li>
-                    <li>Recreation</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="important">
-                <div>IMPORTANT</div>
-                <div>NOT IMPORTANT</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="column">
-                <div class="quadrant-title">Quadrant 3</div>
-                <ul>
-                    @foreach (var t in Model)
-                    {
-                        @if (t.Quadrant == 3 && t.Completed == 0)
-                        {
-                            <li @* class="@className" *@><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
-                        }
-                    }
-                    <li>Interruptions</li>
-                    <li>Some Phone Calls</li>
-                    <li>Some Mail</li>
-                    <li>Some Reports</li>
-                </ul>
-            </div>
-            <div class="column">
-                <div class="quadrant-title">Quadrant 4</div>
-                <ul>
-                    @foreach (var t in Model)
-                    {
-                        @if (t.Quadrant == 4 && t.Completed == 0)
-                        {
-                            <li @* class="@className" *@><a asp-controller="Home" asp-action="EditActivity" asp-route-id="@t.ActivityId">@t.ActivityDescription</a></li>
-                        }
-                    }
-                    <li>Busy Work</li>
-                    <li>Some Phone Calls</li>
-                    <li>Some Mail</li>
-                    <li>Time Wasters</li>
-                </ul>
+                }
             </div>
         </div>
     </div>
-
 </body>
-</html>
