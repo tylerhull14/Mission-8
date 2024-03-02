@@ -23,7 +23,7 @@ namespace Mission_8.Models
 
         public void EditActivity(Activity activity) 
         {
-            _context.Add(activity);
+            _context.Update(activity);
             _context.SaveChanges();
         }
 

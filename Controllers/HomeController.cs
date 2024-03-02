@@ -48,8 +48,8 @@ namespace Mission_8.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var Activity = _repo.Activities
-                .Single(x => x.ActivityId == id);
+            var Activity = _repo.GetActivity(id);
+
             return View(Activity);
         }
 

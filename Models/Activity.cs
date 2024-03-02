@@ -12,15 +12,16 @@ namespace Mission_8.Models
         public int ActivityId { get; set; }
 
         [Required]
-        public string ActivityDescription { get; set; }
+        public string? ActivityDescription { get; set; }
 
-        public string? DueDate { get; set; }
+        [Required]
+        public string DueDate { get; set; }
 
         [Required]
         [Range(1,4)]
         public int Quadrant { get; set; }
 
-        [ForeignKey("Category")]
+        [ForeignKey("CategoryId")]
         public int? CategoryId { get; set; }
         public Category Category { get; set; }
 
