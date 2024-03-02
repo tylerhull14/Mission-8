@@ -90,13 +90,22 @@ namespace Mission_8.Controllers
         [HttpPost]
         public IActionResult Add(Activity response)
         {
-            ViewBag.Categories = _repo.Categories
+            if (ModelState.IsValid) 
+            {
+                ViewBag.Categories = _repo.Categories
                 .OrderBy(x => x.CategoryName)
                 .ToList();
 
             _repo.AddActivity(response);
 
             return RedirectToAction("Matrix");
+            }
+            else
+            {
+                return View(response);
+            }
+            
+            
         }
 
         [HttpGet]
