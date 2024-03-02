@@ -1,0 +1,29 @@
+﻿
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Activity>
+
+<table color="#000080" class="table table-bordered">
+    <thead color="#000080" class="fw-bold">
+        <tr>
+            <td>Task Name</td>
+            <td>Category</td>
+            <td>Quadrant</td>
+            <td>Due Date</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tbody>
+            <tr>
+                <td>@x.ActivityDescription</td>
+            </tr>
+        </tbody>
+    }
+</table>

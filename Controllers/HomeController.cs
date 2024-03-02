@@ -9,31 +9,31 @@ namespace Mission_8.Controllers
 {
     public class HomeController : Controller
     {
-        private ActivityContext _context;
+        private IActivityRepository _repo;
 
-        public HomeController(ActivityContext temp)
+        public HomeController(IActivityRepository temp)
         {
-            _context = temp;
+            _repo = temp;
         }
         public IActionResult Index()
         {
-            return View("Matrix");
+            return View();
         }
 
         public IActionResult Matrix()
         {
-            var Activity = _context.Activities.Include(x => x.Category).ToList();
+            var Activity = _repo.Activities;
             return View(Activity);
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var activityToEdit = _context.Activities
+            var ActivityToEdit = _repo.Activities
                 .SingleOrDefault(x => x.ActivityId == id);
-            return View("Add", activityToEdit);
-        }
 
+            return View("Add", ActivityToEdit);
+        }
 
 
 
@@ -41,15 +41,14 @@ namespace Mission_8.Controllers
         public IActionResult Edit(Activity updatedInfo)
 
         {
-            _context.Update(updatedInfo);
-            _context.SaveChanges();
-            return RedirectToAction("Add");
+            _repo.EditActivity(updatedInfo);
+            return RedirectToAction("Matrix");
         }
 
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var Activity = _context.Activities
+            var Activity = _repo.Activities
                 .Single(x => x.ActivityId == id);
             return View(Activity);
         }
@@ -57,18 +56,17 @@ namespace Mission_8.Controllers
         [HttpPost]
         public IActionResult Delete(Activity updatedInfo)
         {
-            _context.Update(updatedInfo);
-            _context.SaveChanges();
+            _repo.DeleteActivity(updatedInfo);
             return RedirectToAction("Matrix");
         }
 
         [HttpGet]
         public IActionResult Add()
         {
-            ViewBag.Categories = _context.Categories
+            ViewBag.Categories = _repo.Categories
                 .OrderBy(x => x.CategoryName)
                 .ToList();
-            return View();
+            return View(new Activity());
         }
 
 
@@ -77,10 +75,10 @@ namespace Mission_8.Controllers
         public IActionResult EditActivity(int id)
         {
 
-            var activityToEdit = _context.Activities
+            var activityToEdit = _repo.Activities
             .Single(x => x.ActivityId == id);
 
-            ViewBag.Categories = _context.Categories
+            ViewBag.Categories = _repo.Categories
                 .OrderBy(x => x.CategoryName)
                 .ToList();
 
@@ -92,14 +90,20 @@ namespace Mission_8.Controllers
         [HttpPost]
         public IActionResult Add(Activity response)
         {
-            ViewBag.Categories = _context.Categories
+            ViewBag.Categories = _repo.Categories
                 .OrderBy(x => x.CategoryName)
                 .ToList();
-            _context.Activities.Add(response); // Add record to database
-            _context.SaveChanges();
+
+            _repo.AddActivity(response);
 
             return RedirectToAction("Matrix");
         }
 
+        [HttpGet]
+        public IActionResult Test()
+        {
+            var allActivities = _repo.GetAllActivities();
+            return View(allActivities);
+        }
     }
 }
